@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Forecast
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let w of weather">
+      <div class="daily-weather-report">
+        <div class="weather-icon">
+          <img [src]="w.conditionIcon" />
+        </div>
+        <div class="weather-description">
+          <div class="date">
+            {{w.date | date : 'fullDate'}}
+          </div>
+          <div class="condition">
+            {{w.description}}
+          </div>
+          <div class="hilo">
+            Low: {{w.lowTemperature}}
+          </div>
+          <div class="hilo">
+            High: {{w.highTemperature}}
+          </div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
