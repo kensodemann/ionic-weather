@@ -3,7 +3,9 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { CurrentWeatherPage } from './current-weather.page';
+import { TemperaturePipe } from '../../pipes/temperature.pipe';
 
 @NgModule({
   imports: [
@@ -12,6 +14,6 @@ import { CurrentWeatherPage } from './current-weather.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: CurrentWeatherPage }])
   ],
-  declarations: [CurrentWeatherPage]
+  declarations: [CurrentWeatherPage, TemperaturePipe]
 })
 export class CurrentWeatherPageModule {}

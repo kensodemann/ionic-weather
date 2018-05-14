@@ -7,7 +7,7 @@
 <ion-content padding text-center>
   <div class="information">
     <ion-label class="city">Madison</ion-label>
-    <ion-label class="primary-value">{{currentWeather?.temperature}}℉</ion-label>
+    <ion-label class="primary-value">{{currentWeather?.temperature | temperature : 'F'}}</ion-label>
   </div>
   <div class="condition">
     <img [src]="currentWeather?.conditionIcon" />

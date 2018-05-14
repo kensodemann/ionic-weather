@@ -15,7 +15,7 @@ export class CurrentWeatherPage {
   ionViewDidEnter() {
     this.currentWeather = {
       description: 'Sunny',
-      temperature: 58.0,
+      temperature: 288.15,
       highTemperature: 42.0,
       lowTemperature: 64.0,
       conditionIcon: 'assets/imgs/sunny.png',
