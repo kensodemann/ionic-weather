@@ -1,10 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComponentsModule } from '../../components/components.module';
 import { CurrentWeatherPage } from './current-weather.page';
 import { WeatherService } from '../../services/weather.service';
-import { CompileNgModuleMetadata } from '@angular/compiler';
 
 describe('CurrentWeatherPage', () => {
   let component: CurrentWeatherPage;
@@ -15,7 +13,6 @@ describe('CurrentWeatherPage', () => {
   beforeEach(async () => {
     weatherServiceSpy = jasmine.createSpyObj('WeatherService', ['current']);
     TestBed.configureTestingModule({
-      imports: [ComponentsModule],
       declarations: [CurrentWeatherPage],
       providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

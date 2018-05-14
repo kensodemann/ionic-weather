@@ -1,9 +1,6 @@
 export interface Weather {
   description: string;
   temperature: number;
-  conditionIcon: string;
-  conditionRank: number;
-  highTemperature?: number;
-  lowTemperature?: number;
+  condition: number;
   date?: Date;
 }

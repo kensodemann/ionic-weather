@@ -7,7 +7,7 @@
 <ion-content padding text-center>
   <div class="information">
     <ion-label class="city">Wisconsin Dells</ion-label>
-    <app-temperature class="primary-value" temperature="{{currentWeather?.temperature}}" scale="F"></app-temperature>
+    <kws-temperature class="primary-value" scale="F" temperature="{{currentWeather?.temperature}}"></kws-temperature>
   </div>
-  <app-condition [weather]="currentWeather"></app-condition>
+  <kws-condition [condition]="currentWeather?.condition" [iconPaths]="iconMap"></kws-condition>
 </ion-content>

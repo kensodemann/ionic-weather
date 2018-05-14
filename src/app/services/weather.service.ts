@@ -70,44 +70,19 @@ export class WeatherService {
   private unpackForecast(res: any): Forecast {
     let currentDay: Array<Weather>;
     let prevDate: number;
-    const forecast: Forecast = {
-      daily: [],
-      summary: []
-    };
+    const forecast: Forecast = [];
 
     res.list.forEach(item => {
       const w = this.unpackWeather(item);
       if (w.date.getDate() != prevDate) {
         prevDate = w.date.getDate();
         currentDay = [];
-        forecast.daily.push(currentDay);
-        forecast.summary.push(w);
+        forecast.push(currentDay);
       }
       currentDay.push(w);
     });
 
-    this.processSummaries(forecast);
-
     return forecast;
-  }
-
-  private processSummaries(forecast: Forecast) {
-    forecast.summary.forEach((s, i) => {
-      forecast.daily[i].forEach(d => {
-        s.lowTemperature =
-          !s.lowTemperature || d.temperature < s.lowTemperature
-            ? d.temperature
-            : s.lowTemperature;
-        s.highTemperature =
-          !s.highTemperature || d.temperature > s.highTemperature
-            ? d.temperature
-            : s.highTemperature;
-        if (d.conditionRank > s.conditionRank) {
-          s.conditionIcon = d.conditionIcon;
-          s.conditionRank = d.conditionRank;
-        }
-      });
-    });
   }
 
   private unpackUVIndex(res: any): UVIndex {
@@ -124,90 +99,9 @@ export class WeatherService {
     return {
       description: res.weather[0].main,
       temperature: res.main.temp,
-      conditionIcon: this.conditionIcon(res.weather[0].id),
-      conditionRank: this.conditionRank(res.weather[0].id),
+      condition: res.weather[0].id,
       date: new Date(res.dt * 1000)
     };
-  }
-
-  private conditionRank(condition): number {
-    let rank = 0;
-    if (condition >= 200 && condition <= 229) {
-      rank = this.thunderStorm;
-    }
-
-    if (condition >= 230 && condition <= 299) {
-      rank = this.sunnyThunderStorm;
-    }
-
-    if (condition >= 300 && condition <= 399) {
-      rank = this.lightRain;
-    }
-
-    if (condition >= 500 && condition <= 599) {
-      rank = this.shower;
-    }
-
-    if ((condition >= 600 && condition <= 699) || condition === 903) {
-      rank = this.snow;
-    }
-
-    if (condition >= 701 && condition <= 771) {
-      rank = this.fog;
-    }
-
-    if (condition === 800 || condition === 904) {
-      rank = this.sunny;
-    }
-
-    if (condition > 800 && condition < 810) {
-      rank = this.cloudy;
-    }
-
-    return rank;
-  }
-
-  private conditionIcon(condition: number): string {
-    let fileName;
-    switch (this.conditionRank(condition)) {
-      case this.cloudy:
-        fileName = 'cloudy';
-        break;
-
-      case this.fog:
-        fileName = 'fog';
-        break;
-
-      case this.lightRain:
-        fileName = 'light-rain';
-        break;
-
-      case this.shower:
-        fileName = 'shower';
-        break;
-
-      case this.snow:
-        fileName = 'snow';
-        break;
-
-      case this.sunny:
-        fileName = 'sunny';
-        break;
-
-      case this.sunnyThunderStorm:
-        fileName = 'sunny-tstorm';
-        break;
-
-      case this.thunderStorm:
-        fileName = 'tstorm';
-        break;
-
-      default:
-        fileName = 'dunno';
-        break;
-    }
-
-    return `assets/imgs/${fileName}.png`;
   }
 
   private riskLevel(value: number) {

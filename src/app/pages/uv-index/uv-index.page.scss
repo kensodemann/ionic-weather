@@ -1,20 +1,8 @@
-.low-risk {
-  color: #4f912a;
+kws-uv-index {
+  --kws-uv-index-value-font-size: 36px;
+  --kws-uv-index-description-font-size: 24px;
 }
 
-.moderate-risk {
-  color: #F5E24D;
+.description {
+  margin-top: 16px;
 }
-
-.high-risk {
-  color: #E5632B;
-}
-
-.very-high-risk {
-  color: #C52A2A;
-}
-
-.extreme-risk {
-  color: #6350C1;
-}
-

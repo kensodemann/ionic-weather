@@ -41,7 +41,4 @@ describe('AppComponent', () => {
     expect(statusBarSpy.styleDefault).toHaveBeenCalledTimes(1);
     expect(splashScreenSpy.hide).toHaveBeenCalledTimes(1);
   });
-
-  // TODO: add more tests!
-
 });

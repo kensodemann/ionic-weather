@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { IconMapService } from '../../services/icon-map.service';
 import { Weather } from '../../models/weather';
 import { WeatherService } from '../../services/weather.service';
 
@@ -11,7 +12,10 @@ import { WeatherService } from '../../services/weather.service';
 export class CurrentWeatherPage {
   currentWeather: Weather;
 
-  constructor(private weather: WeatherService) {}
+  constructor(
+    public iconMap: IconMapService,
+    private weather: WeatherService
+  ) {}
 
   ionViewDidEnter() {
     this.weather.current().subscribe(w => (this.currentWeather = w));

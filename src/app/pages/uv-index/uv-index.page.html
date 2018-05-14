@@ -7,10 +7,7 @@
 </ion-header>
 
 <ion-content text-center padding>
-  <div [class]="riskClasses[uvIndex?.riskLevel]">
-    <ion-label class="primary-value">{{uvIndex?.value}}</ion-label>
-    <ion-label class="secondary-value">{{uvIndex?.riskLevelDescription}}</ion-label>
-  </div>
+  <kws-uv-index [uvIndex]="uvIndex?.value"></kws-uv-index>
   <div class="description">
     {{advice[uvIndex?.riskLevel]}}
   </div>
