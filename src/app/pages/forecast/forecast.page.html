@@ -19,10 +19,10 @@
             {{w.description}}
           </div>
           <div class="hilo">
-            Low: {{w.lowTemperature}}
+            Low: {{w.lowTemperature | temperature: 'F'}}
           </div>
           <div class="hilo">
-            High: {{w.highTemperature}}
+            High: {{w.highTemperature | temperature: 'F'}}
           </div>
         </div>
       </div>

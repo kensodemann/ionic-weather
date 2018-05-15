@@ -5,15 +5,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { CurrentWeatherPage } from './current-weather.page';
-import { TemperaturePipe } from '../../pipes/temperature.pipe';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    PipesModule,
     RouterModule.forChild([{ path: '', component: CurrentWeatherPage }])
   ],
-  declarations: [CurrentWeatherPage, TemperaturePipe]
+  declarations: [CurrentWeatherPage]
 })
 export class CurrentWeatherPageModule {}
