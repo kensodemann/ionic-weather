@@ -1,19 +1,5 @@
-# Ionic Weather Labs
+# Ionic Weather Demo
 
-This application is used as the basis for the following sets of labs:
+This application is the basis for a demo that I am doing for [ThatConference](https://www.thatconference.com) on using Custom Elements (or Web Components) to increase code reuse across projects that are written using various modern frameworks.
 
-* Ionic Pro Setup
-* Automated Testing
-
-## Branches
-
-* master - the baseline application
-* pro - Ionic Pro integration labs
-* testing - automated testing labs
-* complete - all of the lab supportng branches merged together
-
-## Labs
-
-The various lab topics are independent of one another so they can be taught in any order. The all use this as
-the baseline, while in class you could actually build one lab upon another with (perhaps) some minor coding
-modifications.
+The master branch of this application uses plain old Angular coding contructs to display the current weather conditions. The `feature/useComponents` branch introduces the use of Custom Elements to perform the same function. This reduces the amount of code and increases the code reuse since those Custom Elements can easily be used in any other project that needs to display the current weather conditions.
