@@ -36,10 +36,10 @@ describe('AppComponent', () => {
 
   it('should initialize the app', async () => {
     TestBed.createComponent(AppComponent);
-    expect(platformSpy.ready).toHaveBeenCalled();
+    expect(platformSpy.ready).toHaveBeenCalledTimes(1);
     await platformReadySpy;
-    expect(statusBarSpy.styleDefault).toHaveBeenCalled();
-    expect(splashScreenSpy.hide).toHaveBeenCalled();
+    expect(statusBarSpy.styleDefault).toHaveBeenCalledTimes(1);
+    expect(splashScreenSpy.hide).toHaveBeenCalledTimes(1);
   });
 
   // TODO: add more tests!
