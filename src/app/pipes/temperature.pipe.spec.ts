@@ -1,7 +1,7 @@
 import { TemperaturePipe } from './temperature.pipe';
 
 describe('TemperaturePipe', () => {
-  it('create an instance', () => {
+  it('creates an instance', () => {
     const pipe = new TemperaturePipe();
     expect(pipe).toBeTruthy();
   });
