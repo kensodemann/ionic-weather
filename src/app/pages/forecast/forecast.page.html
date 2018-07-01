@@ -7,25 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let w of weather">
-      <div class="daily-weather-report">
-        <div class="weather-icon">
-          <img [src]="w.conditionIcon" />
-        </div>
-        <div class="weather-description">
-          <div class="date">
-            {{w.date | date : 'fullDate'}}
-          </div>
-          <div class="condition">
-            {{w.description}}
-          </div>
-          <div class="hilo">
-            Low: {{w.lowTemperature | temperature: 'F'}}
-          </div>
-          <div class="hilo">
-            High: {{w.highTemperature | temperature: 'F'}}
-          </div>
-        </div>
-      </div>
+      <app-daily-forecast [weather]="w"></app-daily-forecast>
     </ion-item>
   </ion-list>
 </ion-content>

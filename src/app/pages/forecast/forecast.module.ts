@@ -5,14 +5,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { ForecastPage } from './forecast.page';
-import { PipesModule } from '../../pipes/pipes.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    PipesModule,
+    ComponentsModule,
     RouterModule.forChild([{ path: '', component: ForecastPage }])
   ],
   declarations: [ForecastPage]

@@ -1,0 +1,19 @@
+<div class="daily-weather-report">
+  <div class="weather-icon">
+    <img [src]="weather.conditionIcon" />
+  </div>
+  <div class="weather-description">
+    <div class="date">
+      {{weather.date | date : 'fullDate'}}
+    </div>
+    <div class="condition">
+      {{weather.description}}
+    </div>
+    <div class="hilo">
+      Low: <app-temperature temperature="{{weather.lowTemperature}}" scale="F"></app-temperature>
+    </div>
+    <div class="hilo">
+      High: <app-temperature temperature="{{weather.highTemperature}}" scale="F"></app-temperature>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
+import { PipesModule } from '../pipes/pipes.module';
+import { ConditionComponent } from './condition/condition.component';
+import { TemperatureComponent } from './temperature/temperature.component';
+import { DailyForecastComponent } from './daily-forecast/daily-forecast.component';
+
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule.forRoot(),
+  imports: [CommonModule, IonicModule, PipesModule],
+  declarations: [
+    ConditionComponent,
+    DailyForecastComponent,
+    TemperatureComponent
   ],
-  declarations: [],
-  entryComponents: [],
+  exports: [ConditionComponent, DailyForecastComponent, TemperatureComponent]
 })
 export class ComponentsModule {}
