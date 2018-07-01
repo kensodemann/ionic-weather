@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { empty } from 'rxjs';
 
 import { ForecastPage } from './forecast.page';
-import { PipesModule } from '../../pipes/pipes.module';
 import { WeatherService } from '../../services/weather.service';
 
 describe('ForecastPage', () => {
@@ -18,7 +17,6 @@ describe('ForecastPage', () => {
     });
     TestBed.configureTestingModule({
       declarations: [ForecastPage],
-      imports: [PipesModule],
       providers: [{ provide: WeatherService, useValue: weatherServiceSpy }],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
