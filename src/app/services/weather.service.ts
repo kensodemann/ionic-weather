@@ -29,33 +29,42 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
 
   current(): Observable<Weather> {
-    return this.http
-      .get(
-        `${this.baseUrl}/weather?lat=${this.latitude}&lon=${
-          this.longitude
-        }&appid=${this.appId}`
-      )
-      .pipe(map((res: any) => this.unpackWeather(res)));
+    return (
+      this.http
+        // .get(
+        //   `${this.baseUrl}/weather?lat=${this.latitude}&lon=${
+        //     this.longitude
+        //   }&appid=${this.appId}`
+        // )
+        .get('assets/data/weather.json')
+        .pipe(map((res: any) => this.unpackWeather(res)))
+    );
   }
 
   forecast(): Observable<Forecast> {
-    return this.http
-      .get(
-        `${this.baseUrl}/forecast?lat=${this.latitude}&lon=${
-          this.longitude
-        }&appid=${this.appId}`
-      )
-      .pipe(map((res: any) => this.unpackForecast(res)));
+    return (
+      this.http
+        // .get(
+        //   `${this.baseUrl}/forecast?lat=${this.latitude}&lon=${
+        //     this.longitude
+        //   }&appid=${this.appId}`
+        // )
+        .get('assets/data/forecast.json')
+        .pipe(map((res: any) => this.unpackForecast(res)))
+    );
   }
 
   uvIndex(): Observable<UVIndex> {
-    return this.http
-      .get(
-        `${this.baseUrl}/uvi?lat=${this.latitude}&lon=${this.longitude}&appid=${
-          this.appId
-        }`
-      )
-      .pipe(map((res: any) => this.unpackUVIndex(res)));
+    return (
+      this.http
+        // .get(
+        //   `${this.baseUrl}/uvi?lat=${this.latitude}&lon=${this.longitude}&appid=${
+        //     this.appId
+        //   }`
+        // )
+        .get('assets/data/uvi.json')
+        .pipe(map((res: any) => this.unpackUVIndex(res)))
+    );
   }
 
   private unpackForecast(res: any): Forecast {

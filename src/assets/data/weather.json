@@ -1,0 +1,29 @@
+{
+  "coord": { "lon": -89.77, "lat": 43.57 },
+  "weather": [
+    { "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 296.65,
+    "pressure": 1021,
+    "humidity": 49,
+    "temp_min": 296.15,
+    "temp_max": 297.15
+  },
+  "visibility": 16093,
+  "wind": { "speed": 3.6, "deg": 180 },
+  "clouds": { "all": 1 },
+  "dt": 1530626160,
+  "sys": {
+    "type": 1,
+    "id": 2984,
+    "message": 0.0036,
+    "country": "US",
+    "sunrise": 1530613392,
+    "sunset": 1530668608
+  },
+  "id": 5259140,
+  "name": "Lake Delton",
+  "cod": 200
+}
