@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DailyForecastComponent } from './daily-forecast.component';
+import { TemperatureComponent } from '../temperature/temperature.component';
 
 describe('DailyForecastComponent', () => {
   let component: DailyForecastComponent;
@@ -8,7 +9,7 @@ describe('DailyForecastComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DailyForecastComponent ]
+      declarations: [ DailyForecastComponent, TemperatureComponent ]
     })
     .compileComponents();
   }));

@@ -14,7 +14,7 @@ export class TemperatureComponent {
   }
 
   get celcius(): string {
-    return this.celcius && `${(this.temperature - 273.15).toFixed(0)} ℃`;
+    return this.temperature && `${(this.temperature - 273.15).toFixed(0)} ℃`;
   }
 
   get fahrenheit(): string {
