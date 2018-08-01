@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { empty } from 'rxjs';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { EMPTY } from 'rxjs';
 
 import { UvIndexPage } from './uv-index.page';
 import { WeatherService } from '../../services/weather.service';
@@ -13,7 +13,7 @@ describe('UvIndexPage', () => {
 
   beforeEach(async () => {
     weatherServiceSpy = jasmine.createSpyObj('WeatherService', {
-      uvIndex: empty()
+      uvIndex: EMPTY
     });
     TestBed.configureTestingModule({
       declarations: [UvIndexPage],

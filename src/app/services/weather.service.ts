@@ -74,7 +74,7 @@ export class WeatherService {
 
     res.list.forEach(item => {
       const w = this.unpackWeather(item);
-      if (w.date.getDate() != prevDate) {
+      if (w.date.getDate() !== prevDate) {
         prevDate = w.date.getDate();
         currentDay = [];
         forecast.push(currentDay);
