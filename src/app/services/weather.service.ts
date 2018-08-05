@@ -17,54 +17,41 @@ export class WeatherService {
   private latitude = 43.5709016;
   private longitude = -89.7707362;
 
-  private sunny = 1;
-  private cloudy = 10;
-  private lightRain = 20;
-  private shower = 30;
-  private fog = 40;
-  private sunnyThunderStorm = 50;
-  private thunderStorm = 60;
-  private snow = 70;
+  private useLocalData = false;
 
   constructor(private http: HttpClient) {}
 
   current(): Observable<Weather> {
-    return (
-      this.http
-        // .get(
-        //   `${this.baseUrl}/weather?lat=${this.latitude}&lon=${
-        //     this.longitude
-        //   }&appid=${this.appId}`
-        // )
-        .get('assets/data/weather.json')
-        .pipe(map((res: any) => this.unpackWeather(res)))
-    );
+    return (this.useLocalData
+      ? this.http.get('assets/data/weather.json')
+      : this.http.get(
+          `${this.baseUrl}/weather?lat=${this.latitude}&lon=${
+            this.longitude
+          }&appid=${this.appId}`
+        )
+    ).pipe(map((res: any) => this.unpackWeather(res)));
   }
 
   forecast(): Observable<Forecast> {
-    return (
-      this.http
-        // .get(
-        //   `${this.baseUrl}/forecast?lat=${this.latitude}&lon=${
-        //     this.longitude
-        //   }&appid=${this.appId}`
-        // )
-        .get('assets/data/forecast.json')
-        .pipe(map((res: any) => this.unpackForecast(res)))
-    );
+    return (this.useLocalData
+      ? this.http.get('assets/data/forecast.json')
+      : this.http.get(
+          `${this.baseUrl}/forecast?lat=${this.latitude}&lon=${
+            this.longitude
+          }&appid=${this.appId}`
+        )
+    ).pipe(map((res: any) => this.unpackForecast(res)));
   }
 
   uvIndex(): Observable<UVIndex> {
-    return (
-      this.http
-        // .get(
-        //   `${this.baseUrl}/uvi?lat=${this.latitude}&lon=${this.longitude}&appid=${
-        //     this.appId
-        //   }`
-        // )
-        .get('assets/data/uvi.json')
-        .pipe(map((res: any) => this.unpackUVIndex(res)))
-    );
+    return (this.useLocalData
+      ? this.http.get('assets/data/uvi.json')
+      : this.http.get(
+          `${this.baseUrl}/uvi?lat=${this.latitude}&lon=${
+            this.longitude
+          }&appid=${this.appId}`
+        )
+    ).pipe(map((res: any) => this.unpackUVIndex(res)));
   }
 
   private unpackForecast(res: any): Forecast {
