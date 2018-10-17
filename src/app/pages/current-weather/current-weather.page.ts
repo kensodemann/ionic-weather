@@ -11,11 +11,16 @@ import { WeatherService } from '../../services/weather.service';
 })
 export class CurrentWeatherPage {
   currentWeather: Weather;
+  myColor: string;
 
   constructor(
     public iconMap: IconMapService,
     private weather: WeatherService
   ) {}
+
+  changeColor() {
+    this.myColor = this.myColor ? undefined : 'red';
+  }
 
   ionViewDidEnter() {
     this.weather.current().subscribe(w => (this.currentWeather = w));

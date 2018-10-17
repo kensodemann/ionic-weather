@@ -9,5 +9,5 @@
     <ion-label class="city">Wisconsin Dells</ion-label>
     <kws-temperature class="primary-value" scale="F" temperature="{{currentWeather?.temperature}}"></kws-temperature>
   </div>
-  <kws-condition [condition]="currentWeather?.condition" [iconPaths]="iconMap"></kws-condition>
+  <kws-condition [condition]="currentWeather?.condition" [iconPaths]="iconMap" [bgColor]="myColor" (click)="changeColor()"></kws-condition>
 </ion-content>
